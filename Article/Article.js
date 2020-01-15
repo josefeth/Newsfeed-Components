@@ -89,20 +89,25 @@ const data = [
           
   },
   {
-    title: 'Professional Software Development in 2019',
-    date: 'Jan 1st, 2019',
-    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
-          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
-          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+    title: '2020',
+    date: '2020',
+    firstParagraph: `test`,
 
-    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
-          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
-          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
-          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+    secondParagraph: `test `,
 
-    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
-          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+    thirdParagraph: `test`,
+
+          
+  },
+
+  {
+    title: '2020b',
+    date: '2020',
+    firstParagraph: `test2`,
+
+    secondParagraph: `test2 `,
+
+    thirdParagraph: `test2`,
 
           
   }
@@ -162,8 +167,25 @@ function newsfeed(topTitle, topDate, parOne, parTwo, parThree, parFour) {
 const articleBox = document.querySelector('.articles');
 
 data.forEach((data) => {
-  articleBox.appendChild(newsfeed(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph, data.fourParagraph));
+  articleBox.appendChild(newsfeed(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph,data.fourParagraph));
 }) 
+
+
+ //sidebar
+const burger = document.querySelector(".menu-button");
+
+burger.addEventListener("click", () => {
+  // console.log('hi')
+  document.getElementById("sidebar").classList.toggle('active');
+    // gsap.to(burger, { duration: 0.2, ease: "none", y: 500, yoyo: true, repeat: 1 }) 
+  });
+
+
+   
+  
+
+
+// gsap.to(, { duration: , ease: "none", y: -500 });
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">

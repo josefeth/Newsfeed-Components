@@ -84,10 +84,86 @@ const data = [
 
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+
+          
+  },
+  {
+    title: 'Professional Software Development in 2019',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`,
+
+          
   }
 ];
+function newsfeed(topTitle, topDate, parOne, parTwo, parThree, parFour) {
 
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
+  const fourParagraph = document.createElement('p');
+  const buttonHolder = document.createElement('span');
+  const buttonOpen = document.createElement('button');
+  const buttonClose = document.createElement('button');
+
+  article.classList.add('article');
+  date.classList.add('date');
+  buttonHolder.classList.add('expandButton')
+  buttonOpen.classList.add('close');
+  buttonClose.classList.add('close');
+
+  const open = '\u25bc';
+  const close = '\u25b2';
+
+
+  buttonOpen.textContent = open;
+  buttonClose.textContent = close;
+  title.textContent = topTitle;
+  date.textContent = topDate;
+  firstParagraph.textContent = parOne;
+  secondParagraph.textContent = parTwo;
+  thirdParagraph.textContent = parThree;
+  fourParagraph.textContent = parFour;
+
+
+
+  buttonOpen.addEventListener('click', () => {
+    article.classList.toggle('article-open');
+  });
+
+
+  article.appendChild(title);
+  article.appendChild(date);
+  
+
+  article.appendChild(buttonOpen);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
+  article.appendChild(fourParagraph);
+  
+  return article;
+}
+
+const articleBox = document.querySelector('.articles');
+
+data.forEach((data) => {
+  articleBox.appendChild(newsfeed(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph, data.fourParagraph));
+}) 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
   <div class="article">
